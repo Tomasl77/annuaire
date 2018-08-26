@@ -29,6 +29,8 @@ window.onload = function(){
 
 	AddBtn.addEventListener("click", addToBook);
 
+	addBookDiv.addEventListener("click", editEntry);
+
 	addBookDiv.addEventListener("click", removeEntry);
 
 	// Storage Array
@@ -54,6 +56,16 @@ window.onload = function(){
 			showAddressBook();
 		}
 	}
+
+	/*function editEntry(e){
+		// Remove an entry from the addressbook
+		if(e.target.classList.contains('delbutton')){
+			var editID = e.target.getAttribute('data-id');
+			addressBook.splice(editID,1);
+			localStorage['addbook'] = JSON.stringify(addressBook);
+			showAddressBook();
+		}
+	}*/
 
 	function removeEntry(e){
 		// Remove an entry from the addressbook
