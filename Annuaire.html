@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<title>AddressBook</title>
 	<link rel="stylesheet" href="styles/addressbook.css">
-	<script src="scripts/addressbook.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="title">
 			<h1>Annuaire</h1>
 		</div>
-		<div class="letters"><span class="letter">A </span><span class="letter">B </span><span class="letter">C </span><span class="letter">D </span><span class="letter">E </span><span class="letter">F </span><span class="letter">G </span><span class="letter">H </span><span class="letter">I </span><span class="letter">J </span><span class="letter">K </span><span class="letter">L </span><span class="letter">M </span><span class="letter">N </span><span class="letter">O </span><span class="letter">P </span><span class="letter">Q </span><span class="letter">R </span><span class="letter">S </span><span class="letter">T </span><span class="letter">U </span><span class="letter">V </span><span class="letter">W </span><span class="letter">X </span><span class="letter">Y </span><span class="letter">Z </span></div>
+		<div id="letters"><span class="letter la">A </span><span class="letter lb">B </span><span class="letter lc">C </span><span class="letter ld">D </span><span class="letter le">E </span><span class="letter lf">F </span><span class="letter lg">G </span><span class="letter lh">H </span><span class="letter li">I </span><span class="letter lj">J </span><span class="letter lk">K </span><span class="letter ll">L </span><span class="letter lm">M </span><span class="letter ln">N </span><span class="letter lo">O </span><span class="letter lp">P </span><span class="letter lq">Q </span><span class="letter lr">R </span><span class="letter ls">S </span><span class="letter lt">T </span><span class="letter lu">U </span><span class="letter lv">V </span><span class="letter lw">W </span><span class="letter lx">X </span><span class="letter ly">Y </span><span class="letter lz">Z </span></div>
 		<div class="quickadd"><button id="QuickAdd">+ Add</button></div>
+		<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names">
 		<div class="quickaddForm">
 			<label for="fullname">Name</label><input type="text" id="fullname" class="formFields">
 			<label for="address">First Name</label><input type="text" id="firstname" class="formFields"></textarea>
@@ -22,9 +22,10 @@
 			<br><br>
 			<button id="Add">Add Now</button><button id="Cancel">Cancel</button>
 		</div>
-		<div class="addbook">
+		<div class="addbook" id="addbook">
 			
 		</div>
 	</div>
+<script src="scripts/addressbook.js"></script>
 </body>
 </html>

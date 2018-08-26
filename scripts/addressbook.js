@@ -1,15 +1,20 @@
 window.onload = function(){
 	// Buttons
-	var quickAddBtn = document.getElementById('QuickAdd');
-	var quickAddFormDiv = document.querySelector('.quickaddForm')
-	var cancelBtn = document.getElementById('Cancel');
-	var AddBtn = document.getElementById('Add');
+	var quickAddBtn, quickAddFormDiv, cancelBtn, AddBtn, letters;
+	quickAddBtn = document.getElementById('QuickAdd');
+	quickAddFormDiv = document.querySelector('.quickaddForm')
+	cancelBtn = document.getElementById('Cancel');
+	AddBtn = document.getElementById('Add');
+	letters = document.getElementById('letters');
+
 	// Form Fields
-	var fullname = document.getElementById('fullname');
-	var phone = document.getElementById('phone');
-	var address = document.getElementById('address');
-	var fonction = document.getElementById('fonction');
-	var email = document.getElementById('email');
+	var fullname, phone, address, fonction, email;
+	fullname = document.getElementById('fullname');
+	phone = document.getElementById('phone');
+	address = document.getElementById('address');
+	fonction = document.getElementById('fonction');
+	email = document.getElementById('email');
+	
 	// Divs etc.
 	var addBookDiv = document.querySelector('.addbook');
 
@@ -55,7 +60,7 @@ window.onload = function(){
 		if(e.target.classList.contains('delbutton')){
 			var remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
-			localStorage.removeItem('addbook', JSON.stringify(addressBook));
+			localStorage['addbook'] = JSON.stringify(addressBook);
 			showAddressBook();
 		}
 	}
@@ -89,6 +94,24 @@ window.onload = function(){
 		}
 	}
 
-	showAddressBook();
+		showAddressBook();
 
 }
+
+	function mySearch() {
+	var input, filter, book, divSearch, nameSearch, i;
+	input = document.getElementById("myInput");
+	filter = input.value.toUpperCase();
+	book = document.getElementById("addbook");
+	divSearch = book.getElementsByTagName("div");
+	for (i = 0; i < divSearch.length; i++) {
+	nameSearch = divSearch[i].getElementsByClassName("name")[0];
+	if (nameSearch) {
+		  if (nameSearch.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		    divSearch[i].style.display = "";
+		  } else {
+		    divSearch[i].style.display = "none";
+		  		}
+			}       
+		}
+	}
