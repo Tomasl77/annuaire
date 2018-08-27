@@ -1,20 +1,15 @@
 window.onload = function(){
 	// Buttons
-	var quickAddBtn, quickAddFormDiv, cancelBtn, AddBtn, letters;
-	quickAddBtn = document.getElementById('QuickAdd');
-	quickAddFormDiv = document.querySelector('.quickaddForm')
-	cancelBtn = document.getElementById('Cancel');
-	AddBtn = document.getElementById('Add');
-	letters = document.getElementById('letters');
-
+	var quickAddBtn = document.getElementById('QuickAdd');
+	var quickAddFormDiv = document.querySelector('.quickaddForm')
+	var cancelBtn = document.getElementById('Cancel');
+	var AddBtn = document.getElementById('Add');
 	// Form Fields
-	var fullname, phone, address, fonction, email;
-	fullname = document.getElementById('fullname');
-	phone = document.getElementById('phone');
-	address = document.getElementById('address');
-	fonction = document.getElementById('fonction');
-	email = document.getElementById('email');
-	
+	var fullname = document.getElementById('fullname');
+	var firstname = document.getElementById('firstname');
+	var phone = document.getElementById('phone');
+	var fonction = document.getElementById('fonction');
+	var email = document.getElementById('email');
 	// Divs etc.
 	var addBookDiv = document.querySelector('.addbook');
 
@@ -36,7 +31,7 @@ window.onload = function(){
 	// Storage Array
 	var addressBook = [];
 
-	function jsonStructure(fullname,firstname,phone,fonction,email){
+	function json(fullname,firstname,phone,fonction,email){
 		this.fullname = fullname;
 		this.firstname = firstname;
 		this.phone = phone;
@@ -45,27 +40,26 @@ window.onload = function(){
 	}
 
 	function addToBook(){
-		var isNull = fullname.value!='' && firstname.value!='' && phone.value!='' && fonction.value!='' && email.value!='';
-		if(isNull){
+		var entrynew = fullname.value!='' && firstname.value!='' && phone.value!='' && fonction.value!='' && email.value!='';
+		if(entrynew){
 			// format the input into a valid JSON structure
-			var obj = new jsonStructure(fullname.value,firstname.value,phone.value,fonction.value,email.value);
+			var obj = new json(fullname.value,firstname.value,phone.value,fonction.value,email.value);
 			addressBook.push(obj);
-			localStorage.setItem('addbook', JSON.stringify(addressBook));
+			localStorage['addbook'] = JSON.stringify(addressBook);
 			quickAddFormDiv.style.display = "none";
 			clearForm();
 			showAddressBook();
 		}
 	}
 
-	/*function editEntry(e){
-		// Remove an entry from the addressbook
-		if(e.target.classList.contains('delbutton')){
+	function editEntry(e){
+		// Edit an entry from the addressbook
+		if(e.target.classList.contains('editbutton')){
 			var editID = e.target.getAttribute('data-id');
-			addressBook.splice(editID,1);
-			localStorage['addbook'] = JSON.stringify(addressBook);
-			showAddressBook();
+			addressBook.splice(editID,-1);
+			localStorage.getItem ;
 		}
-	}*/
+	}
 
 	function removeEntry(e){
 		// Remove an entry from the addressbook
@@ -85,8 +79,8 @@ window.onload = function(){
 	}
 
 	function showAddressBook(){
-		if(localStorage.getItem('addbook') === undefined){
-			addbook = '';
+		if(localStorage['addbook'] === undefined){
+			localStorage['addbook'] = '';
 		} else {
 			addressBook = JSON.parse(localStorage.getItem('addbook'));
 			// Loop over the array addressBook and insert into the page
