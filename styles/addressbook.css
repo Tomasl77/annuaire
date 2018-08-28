@@ -40,7 +40,7 @@ body {
     text-shadow:0px 0px 1px;
 }
 
-.quickaddForm {
+.quickaddForm, .quickaddFormEdit {
     height:440px;
     padding:10px;
     background:rgb(240,240,240);
@@ -48,7 +48,7 @@ body {
     display:none;
 }
 
-.quickaddForm label {
+.quickaddForm label, .quickaddFormEdit label {
     position:relative;
     display:block;
     width:300px;
@@ -60,7 +60,7 @@ body {
     font-weight:bold;
 }
 
-.quickaddForm input,textarea {
+.quickaddForm input,textarea, .quickaddFormEdit input,textarea {
     border:1px dashed;
     width:50%;
     padding:10px;
@@ -69,7 +69,7 @@ body {
     box-shadow:inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-#Add,#Cancel {
+#Add, #Cancel, #Edit, #Cancel2 {
     padding:10px;
     margin:20px;
     position:relative;

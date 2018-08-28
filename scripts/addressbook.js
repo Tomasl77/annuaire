@@ -1,9 +1,12 @@
 window.onload = function(){
 	// Buttons
 	var quickAddBtn = document.getElementById('QuickAdd');
-	var quickAddFormDiv = document.querySelector('.quickaddForm')
+	var quickAddFormDiv = document.querySelector('.quickaddForm');
+	var quickAddFormEditDiv = document.querySelector('.quickaddFormEdit');
 	var cancelBtn = document.getElementById('Cancel');
+	var cancel2Btn = document.getElementById('Cancel2');
 	var AddBtn = document.getElementById('Add');
+	var EditBtn = document.getElementById('Edit');
 	// Form Fields
 	var fullname = document.getElementById('fullname');
 	var firstname = document.getElementById('firstname');
@@ -21,6 +24,10 @@ window.onload = function(){
 	cancelBtn.addEventListener("click", function(){
 		quickAddFormDiv.style.display = "none";
 	});
+
+	cancel2Btn.addEventListener("click", function(){
+		quickAddFormEditDiv.style.display = "none";
+	})
 
 	AddBtn.addEventListener("click", addToBook);
 
@@ -53,13 +60,56 @@ window.onload = function(){
 	}
 
 	function editEntry(e){
+		
+		EditBtn.addEventListener("click", editbtn);
+		
 		// Edit an entry from the addressbook
 		if(e.target.classList.contains('editbutton')){
-			var editID = e.target.getAttribute('data-id');
-			addressBook.splice(editID,-1);
-			localStorage.getItem ;
+			editID = e.target.getAttribute('data-id');
+			editEntry = JSON.parse(localStorage.getItem("addbook"))[editID];
+			alert(editEntry["firstname"])
+			quickAddFormEditDiv.style.display = "block";
+			function load_data() {
+  				var oldFullName = document.getElementById("editfullname");
+  				oldFullName.value = editEntry["fullname"];
+  				var oldFirstName = document.getElementById("editfirstname");
+  				oldFirstName.value = editEntry["firstname"];
+  				var oldPhone = document.getElementById("editphone");
+  				oldPhone.value = editEntry["phone"];
+  				var oldfonction = document.getElementById("editfonction");
+  				oldfonction.value = editEntry["fonction"];
+  				var oldemail = document.getElementById("editemail");
+  				oldemail.value = editEntry["email"];
+			}
+
+			load_data();	
+		}
+
+
+		function editbtn(){
+
+		
+		editAll = JSON.parse(localStorage.getItem("addbook"))[editID];
+		var edition = editfullname.value!='' && editfirstname.value!='' && editphone.value!='' && editfonction.value!='' && editemail.value!='';
+		if(edition){
+		editAll["fullname"] = editfullname.value;
+		editEntry["firstname"] = editfirstname.value;
+		editEntry["phone"]= editphone.value;
+		editEntry["fonction"] = editfonction.value;
+		editEntry["email"] = editemail.value;
+		
+		alert([editID,editEntry["fullname"],editEntry["firstname"],editEntry["email"],editEntry["fonction"],editEntry["phone"]])
+		
+		//localStorage['addbook'] = JSON.stringify(editfullname.value,editfirstname.value,editphone.value,editfonction.value,editemail.value);
+		//localStorage.setItem(("addbook")[editID], JSON.stringify(editfullname.value,editfirstname.value,editphone.value,editfonction.value,editemail.value));
+			}
+			quickAddFormEditDiv.style.display = "none";
+			clearForm();
+			showAddressBook();
+			
 		}
 	}
+
 
 	function removeEntry(e){
 		// Remove an entry from the addressbook
