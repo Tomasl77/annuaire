@@ -86,7 +86,6 @@ body {
     padding:10px;
     font-weight:bold;
     border-radius:5px;
-    box-shadow:inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
 #Add, #Cancel, #Edit, #Cancel2 {
@@ -100,7 +99,6 @@ body {
 }
 
 .entry {
-    background:rgb(230,230,230);
     width:960px;
     height:40px;
     border-bottom:1px solid;
@@ -108,45 +106,44 @@ body {
 
 
 .entry .name {
-    width:130px;
-    float:left;
-    padding:11px;
-}
-
-.entry .email {
-    width:190px;
-    float:left;
-    padding:11px;
-}
-
-
-.entry .phone {
-    width:80px;
+    width:20%;
     float:left;
     padding:11px;
 }
 
 .entry .firstname {
-    width:250px;
+    width:20%;
+    float:left;
+    padding:11px;
+}
+
+.entry .email {
+    width:20%;
+    float:left;
+    padding:11px;
+}
+
+.entry .phone {
+    width:8%;
     float:left;
     padding:11px;
 }
 
 .entry .fonction {
-    width:90px;
+    width:9%;
     float:left;
     padding:11px;
 }
 
 
 .entry .edit {
-    width:30px;
+    width:3%;
     float:left;
     padding:9px;
 }
 
 .entry .del {
-    width:30px;
+    width:3%;
     float:left;
     padding:9px;
 }
@@ -155,7 +152,6 @@ body {
     margin:0px;
     font-family:sans-serif;
     font-size:12px;
-    text-shadow:0px 0px 1px rgba(0,0,0,0.4);
 }
 
 .entry .del a {
@@ -163,7 +159,7 @@ body {
     color:#FFF;
     font-size:12px;
     padding:5px;
-    background:rgb(255,100,100);
+    background:#8C2828;
     border-radius:8px;
     text-decoration:none;
 }
@@ -173,7 +169,25 @@ body {
     color:#FFF;
     font-size:12px;
     padding:5px;
-    background:rgb(255,100,100);
+    background:#8C2828;
     border-radius:8px;
     text-decoration:none;
+}
+
+@media screen and (max-width: 640px)  {
+    .title{
+        background-color: white;
+    }
+    .entry{
+        width: 500px;
+    }
+    .entry .name{
+        width: 15%;
+    }
+    .entry .firstname{
+        width: 15%;
+    }
+    .entry .email{
+        width: 15%;
+    }
 }
