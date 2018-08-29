@@ -67,7 +67,7 @@ window.onload = function(){
 		if(e.target.classList.contains('editbutton')){
 			editID = e.target.getAttribute('data-id');
 			editEntry = JSON.parse(localStorage.getItem("addbook"))[editID];
-			alert(editEntry["firstname"])
+			alert(editID)
 			quickAddFormEditDiv.style.display = "block";
 			function load_data() {
   				var oldFullName = document.getElementById("editfullname");
@@ -82,11 +82,27 @@ window.onload = function(){
   				oldemail.value = editEntry["email"];
 			}
 
-			load_data();	
+			load_data();
 		}
 
-
 		function editbtn(){
+			var entryedit = editfullname.value!='' && editfirstname.value!='' && editphone.value!='' && editfonction.value!='' && editemail.value!='';
+			if(entryedit){
+			// format the input into a valid JSON structure
+				var obj = new json(editfullname.value,editfirstname.value,editphone.value,editfonction.value,editemail.value);
+				addressBook.push(obj);
+				localStorage['addbook'] = JSON.stringify(addressBook);
+				quickAddFormEditDiv.style.display = "none";
+				clearForm();
+				showAddressBook();
+			}
+		}
+			addressBook.splice(editID,1);
+			localStorage['addbook'] = JSON.stringify(addressBook);
+			editID = '';
+			showAddressBook();
+		
+		/*function editbtn(){
 
 		
 		editAll = JSON.parse(localStorage.getItem("addbook"))[editID];
@@ -107,14 +123,46 @@ window.onload = function(){
 			clearForm();
 			showAddressBook();
 			
-		}
+		}*/
 	}
 
+	/*function editEntry(e){
+		// Edit an entry from the addressbook
+		if(e.target.classList.contains('editbutton')){
+			var editID = e.target.getAttribute('data-id');
+			editEntry = JSON.parse(localStorage.getItem("addbook"))[editID];
+			quickAddFormDiv.style.display = "block";
+			var entryEdit = fullname.value!='' && firstname.value!='' && phone.value!='' && fonction.value!='' && email.value!='';
+			if(entryEdit){
+				editEntry["fullname"] = entryEdit.fullname;
+				editEntry["firstname"] = entryEdit.firstname;
+				editEntry["phone"] = entryEdit.phone;
+				editEntry["fonction"] = entryEdit.fonction;
+				editEntry["email"] = entryEdit.email;
+			}
+		}
+	}*/
+
+		/*function editEntry(e){
+		// Edit an entry from the addressbook
+		if(e.target.classList.contains('editbutton')){
+			var editID = e.target.getAttribute('data-id');
+			editEntry = JSON.parse(localStorage.getItem("addbook"))[editID];
+			quickAddFormDiv.style.display = "block";
+			var entryEdit = fullname.value!='' && firstname.value!='' && phone.value!='' && fonction.value!='' && email.value!='';
+			if(entryEdit){
+				localStorage.setItem(("addbook")[editID], JSON.stringify(addressBook));
+				quickAddFormDiv.style.display = "none";
+				clearForm();
+				showAddressBook();
+			}
+		}
+	}*/
 
 	function removeEntry(e){
 		// Remove an entry from the addressbook
 		if(e.target.classList.contains('delbutton')){
-			var remID = e.target.getAttribute('data-id');
+			remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
 			localStorage['addbook'] = JSON.stringify(addressBook);
 			showAddressBook();
