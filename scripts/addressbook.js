@@ -1,4 +1,5 @@
 window.onload = function(){
+
 	// Buttons
 	var quickAddBtn = document.getElementById('QuickAdd');
 	var quickAddFormDiv = document.querySelector('.quickaddForm');
@@ -7,12 +8,14 @@ window.onload = function(){
 	var cancel2Btn = document.getElementById('Cancel2');
 	var AddBtn = document.getElementById('Add');
 	var EditBtn = document.getElementById('Edit');
+
 	// Form Fields
 	var fullname = document.getElementById('fullname');
 	var firstname = document.getElementById('firstname');
 	var phone = document.getElementById('phone');
 	var fonction = document.getElementById('fonction');
 	var email = document.getElementById('email');
+
 	// Divs etc.
 	var addBookDiv = document.querySelector('.addbook');
 
@@ -202,6 +205,8 @@ window.onload = function(){
 
 }
 
+//Search fonction
+
 function mySearch() {
 	var input = document.getElementById("myInput");
 	var filter = input.value.toUpperCase();
@@ -219,6 +224,7 @@ function mySearch() {
 	}
 }
 
+// Trying to filter by letters
 function test(){
 var input, filter, book, divSearch, nameSearch, i;
 	booka = document.getElementById("addbook");
