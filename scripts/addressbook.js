@@ -104,6 +104,7 @@ window.onload = function(){
 			localStorage['addbook'] = JSON.stringify(addressBook);
 			editID = '';
 			showAddressBook();
+	}
 		
 		/*function editbtn(){
 		
@@ -126,7 +127,6 @@ window.onload = function(){
 			showAddressBook();
 			
 		}*/
-	}
 
 	/*function editEntry(e){
 		// Edit an entry from the addressbook
