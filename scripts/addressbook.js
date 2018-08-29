@@ -19,8 +19,8 @@ window.onload = function(){
 	// Divs etc.
 	var addBookDiv = document.querySelector('.addbook');
 
+	// display the form div
 	quickAddBtn.addEventListener("click", function(){
-		// display the form div
 		quickAddFormDiv.style.display = "block";
 	});
 
