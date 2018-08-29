@@ -221,17 +221,18 @@ function mySearch() {
 }
 
 function test(){
-	var j;
-	var booka = document.getElementById("addbook");
-	var divSearcha = booka.getElementsByTagName("div");
-	for (j = 0; j < divSearcha.length; j++) {
-	var lettera = document.getElementsByClassName("name")[0];
-	if (lettera)
-		if(lettera.innerHTML.charAt(0) == "a" || "A") {
-		    divSearcha[j].style.display = "";
+var input, filter, book, divSearch, nameSearch, i;
+	booka = document.getElementById("addbook");
+	divSearcha = booka.getElementsByTagName("div");
+	for (i = 0; i < divSearcha.length; i++) {
+	nameSearcha = divSearcha[i].getElementsByClassName("name")[0];
+	if (nameSearch) {
+		if (nameSearcha.innerHTML.charAt(0) == "a" || "A") {
+		    divSearcha[i].style.display = "";
 		} else {
-		    divSearcha[j].style.display = "none";
-	  		
-		}       
+		    divSearcha[i].style.display = "none";
+	  		}
+		}
 	}
 }
+

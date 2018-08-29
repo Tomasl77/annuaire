@@ -1,6 +1,7 @@
 body {
     margin:0px;
     padding: 0px;
+    background-image: url("../images/gravel.png");
 }
 
 .container {
@@ -28,6 +29,23 @@ body {
 }
 .letter {
     color: red;
+}
+
+#myInput{
+    margin:auto;
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #8C2828;
+    border: 2px #8bc2a1 solid;
+    border-radius: 20px;
+    width: 200px;
+    height:30px;
+    margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 .quickadd {
