@@ -203,13 +203,12 @@ window.onload = function(){
 }
 
 function mySearch() {
-	var input, filter, book, divSearch, nameSearch, i;
-	input = document.getElementById("myInput");
-	filter = input.value.toUpperCase();
-	book = document.getElementById("addbook");
-	divSearch = book.getElementsByTagName("div");
+	var input = document.getElementById("myInput");
+	var filter = input.value.toUpperCase();
+	var book = document.getElementById("addbook");
+	var divSearch = book.getElementsByTagName("div");
 	for (i = 0; i < divSearch.length; i++) {
-	nameSearch = divSearch[i].getElementsByClassName("name")[0];
+	var nameSearch = divSearch[i].getElementsByClassName("name")[0];
 	if (nameSearch) {
 		if (nameSearch.innerHTML.toUpperCase().indexOf(filter) > -1) {
 		    divSearch[i].style.display = "";
