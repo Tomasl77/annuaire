@@ -106,7 +106,6 @@ window.onload = function(){
 			showAddressBook();
 		
 		/*function editbtn(){
-
 		
 		editAll = JSON.parse(localStorage.getItem("addbook"))[editID];
 		var edition = editfullname.value!='' && editfirstname.value!='' && editphone.value!='' && editfonction.value!='' && editemail.value!='';
