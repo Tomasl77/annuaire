@@ -11,8 +11,10 @@
 			<h1>Annuaire</h1>
 		</div>
 		<div id="letters"><span class="letter pointer laall pointer" onclick="test()"># </span><span class="letter pointer la">A </span><span class="letter pointer lb">B </span><span class="letter pointer lc">C </span><span class="letter pointer ld">D </span><span class="letter pointer le">E </span><span class="letter pointer lf">F </span><span class="letter pointer lg">G </span><span class="letter pointer lh">H </span><span class="letter pointer li">I </span><span class="letter pointer lj">J </span><span class="letter pointer lk">K </span><span class="letter pointer ll">L </span><span class="letter pointer lm">M </span><span class="letter pointer ln">N </span><span class="letter pointer lo">O </span><span class="letter pointer lp">P </span><span class="letter pointer lq">Q </span><span class="letter pointer lr">R </span><span class="letter pointer ls">S </span><span class="letter pointer lt">T </span><span class="letter pointer lu">U </span><span class="letter pointer lv">V </span><span class="letter pointer lw">W </span><span class="letter pointer lx">X </span><span class="letter pointer ly">Y </span><span class="letter pointer lz">Z </span></div>
-		<div class="quickadd"><button id="QuickAdd">+ Add</button></div>
-		<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names">
+		<div class="quickadd"><button id="QuickAdd">+ Ajouter +</button></div>
+		<div class="inputDiv">
+			<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Recherche par nom">
+		</div>
 		<div class="quickaddForm">
 			<label for="fullname">Name</label><input type="text" id="fullname" class="formFields">
 			<label for="firstname">First Name</label><input type="text" id="firstname" class="formFields"></textarea>
@@ -20,7 +22,7 @@
 			<label for="email">E-Mail</label><input type="email" id="email" class="formFields">
 			<label for="city">Fonction</label><input type="text" id="fonction" class="formFields">
 			<br><br>
-			<button id="Add">Add Now</button><button id="Cancel">Cancel</button>
+			<button id="Add">Add Now</button><button id="Cancel">Annuler</button>
 		</div>
 		<div class="quickaddFormEdit">
 			<label for="fullname">Name</label><input type="text" id="editfullname" class="formFields">
