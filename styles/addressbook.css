@@ -23,7 +23,9 @@ body {
     display: flex;
     justify-content: space-around;
 }
-
+.pointer {
+    cursor: pointer;
+}
 .letter {
     color: red;
 }

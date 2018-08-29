@@ -202,7 +202,7 @@ window.onload = function(){
 
 }
 
-	function mySearch() {
+function mySearch() {
 	var input, filter, book, divSearch, nameSearch, i;
 	input = document.getElementById("myInput");
 	filter = input.value.toUpperCase();
@@ -211,11 +211,27 @@ window.onload = function(){
 	for (i = 0; i < divSearch.length; i++) {
 	nameSearch = divSearch[i].getElementsByClassName("name")[0];
 	if (nameSearch) {
-		  if (nameSearch.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		if (nameSearch.innerHTML.toUpperCase().indexOf(filter) > -1) {
 		    divSearch[i].style.display = "";
-		  } else {
+		} else {
 		    divSearch[i].style.display = "none";
-		  		}
-			}       
-		}
+	  		}
+		}       
 	}
+}
+
+function test(){
+	var j;
+	var booka = document.getElementById("addbook");
+	var divSearcha = booka.getElementsByTagName("div");
+	for (j = 0; j < divSearcha.length; j++) {
+	var lettera = document.getElementsByClassName("name")[0];
+	if (lettera)
+		if(lettera.innerHTML.charAt(0) == "a" || "A") {
+		    divSearcha[j].style.display = "";
+		} else {
+		    divSearcha[j].style.display = "none";
+	  		
+		}       
+	}
+}
